@@ -1,0 +1,6 @@
+# Save the file as /etc/udev/rules.d/klipper.rules
+# ENV{PRODUCT}=="xxxxxxxx" value can be found by running the command: udevadm monitor --kernel --property --subsystem-match=usb
+# Source for this https://www.thegeekdiary.com/how-to-run-a-script-when-usb-devices-is-attached-or-removed-using-udev/
+ACTION=="add", SUBSYSTEM=="usb", ENV{PRODUCT}=="2341/abcd/100", RUN=="/bin/systemctl --no-block restart klipper.service"
+ACTION=="add", SUBSYSTEM=="usb", ENV{PRODUCT}=="2341/abcd/100", RUN=="/home/pi/script/klipper_connect.sh"
+ACTION=="remove", SUBSYSTEM=="usb", ENV{PRODUCT}=="2341/abcd/100", RUN+="/bin/systemctl --no-block stop klipper.service"
