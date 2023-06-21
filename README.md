@@ -14,3 +14,6 @@ Klipper Firmware Configuration
     Communication interface (Serial (on UART4 PA0/PA1))  --->  
 (250000) Baud rate for serial port  
 (PB5,PE5) GPIO pins to set at micro-controller startup  
+
+
+Rename the file to "firmware.bin" and copy it onto an SD card, insert the sd card in the front slot of the printer and restart the printer. 
